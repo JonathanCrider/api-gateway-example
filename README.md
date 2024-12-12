@@ -1,9 +1,6 @@
 # Api Skill Assessment
 
 
-
----
-
 ## Problem 1: Simple Weather Query
 ### Objective: Demonstrate the ability to consume an external REST API.
 
@@ -21,7 +18,6 @@ Format the data into a readable JSON response to be displayed on the console or 
 Include error handling for invalid city names or network issues.
 Use an API key securely (environment variables are preferred).
 
----
 
 ## Problem 2: Create a Local API
 
@@ -46,7 +42,6 @@ Ensure proper HTTP status codes for responses.
 Add validation for required fields in POST and PUT requests.
 Document the API with example requests and responses.
 
----
 
 ## Problem 3: Integrate Payment Information
 ### Objective: Demonstrate integration skills with an external API and handling structured data.
