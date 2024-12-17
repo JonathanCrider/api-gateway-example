@@ -28,5 +28,8 @@ app.post('/test', (req, res, next) => {
 
 app.post('/weather', async (req, res, next) => {
   const { city } = req.body
-  console.log(await weather(city))
+
+  const current = await weather(city)
+
+  res.json(current)
 })
