@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-export const weather = async (city) => {
+const current = async (city) => {
   const API_KEY = process.env.OPENWEATHER_API_KEY
   const resRaw = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`)
   const res = await resRaw.json()
@@ -14,3 +14,5 @@ export const weather = async (city) => {
     description
   }
 }
+
+export default current
