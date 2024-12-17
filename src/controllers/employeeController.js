@@ -100,6 +100,50 @@ export const getEmployeeById = async (id) => {
   }
 }
 
+// UPDATE
+
+export const updateEmployee = async (employeeData) => {
+  const {
+    emp_no,
+    emp_name,
+    hire_date,
+    supervisor_name,
+    department_code
+  } = employeeData
+  const db = await connectDB()
+  
+  try {
+    return new Promise((resolve, reject) => {
+      db.run(
+        `
+        UPDATE EMP
+        SET
+          emp_name = $empName,
+          hire_date = $hireDate,
+          supervisor_name = $supervisorName,
+          department_code = $departmentCode
+        WHERE emp_no = $empNo;
+        `,
+        {
+          $empNo: emp_no,
+          $empName: emp_name,
+          $hireDate: hire_date,
+          $supervisorName: supervisor_name,
+          $departmentCode: department_code,
+        },
+        (err) => {
+        if (err) reject(err)
+        else resolve({ message: `Success! Updated employee ${emp_no}`})
+      })
+    })
+  } catch (err) {
+    console.error('Error creating new Employee', err.message)
+    throw err
+  } finally {
+    db.close()
+  }
+}
+
 
 // const db = require('../models/database');
 
