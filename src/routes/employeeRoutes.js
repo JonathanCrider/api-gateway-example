@@ -1,12 +1,15 @@
 import express from 'express'
 import {
   createNewEmployee,
+  deleteEmployee,
   getAllEmployees,
   getEmployeeById,
   updateEmployee
 } from '../controllers/employeeController.js'
 
 const router = express.Router()
+
+// CREATE
 
 router.post('/', async (req, res, next) => {
   // validate data
@@ -33,6 +36,8 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+// READ
+
 router.get('/', async (req, res, next) => {
   try {
     const allEmployees = await getAllEmployees()
@@ -55,7 +60,6 @@ router.get('/:id', async (req, res, next) => {
 // UPDATE
 
 router.put('/:id', async (req, res, next) => {
-  // changed to patch, specifcally allows for a partial update vs requiring all fields
   // validate data
   const { id } = req.params
 
@@ -75,15 +79,25 @@ router.put('/:id', async (req, res, next) => {
   }
   try {
     const updatedEmployee = await updateEmployee(employeeData)
+    console.log(updatedEmployee)
     res.sendStatus(204)
   } catch (err) {
     next(err)
   }
 })
 
-// router.delete('/:id', async (req, res, next) => {
-//   // Remove an employee by ID.
-//   // 204
-// })
+// DELETE
+
+router.delete('/:id', async (req, res, next) => {
+  // validate data
+  const { id } = req.params
+  try {
+    const deletedEmployee = await deleteEmployee(id)
+    console.log(deletedEmployee)
+    res.sendStatus(204)
+  } catch (err) {
+    next(err)
+  }
+})
 
 export default router

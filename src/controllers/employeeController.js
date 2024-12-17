@@ -137,87 +137,35 @@ export const updateEmployee = async (employeeData) => {
       })
     })
   } catch (err) {
-    console.error('Error creating new Employee', err.message)
+    console.error('Error updating Employee', err.message)
     throw err
   } finally {
     db.close()
   }
 }
 
+// DELETE
 
-// const db = require('../models/database');
-
-// // Fetch all users
-// const getAllUsers = (req, res) => {
-//   db.all('SELECT * FROM users', [], (err, rows) => {
-//     if (err) {
-//       return res.status(500).json({ error: err.message });
-//     }
-//     res.json(rows);
-//   });
-// };
-
-// // Fetch a single user by ID
-// const getUserById = (req, res) => {
-//   const { id } = req.params;
-//   db.get('SELECT * FROM users WHERE id = ?', [id], (err, row) => {
-//     if (err) {
-//       return res.status(500).json({ error: err.message });
-//     }
-//     if (!row) {
-//       return res.status(404).json({ error: 'User not found' });
-//     }
-//     res.json(row);
-//   });
-// };
-
-// // Create a new user
-// const createUser = (req, res) => {
-//   const { name, email } = req.body;
-//   const query = 'INSERT INTO users (name, email) VALUES (?, ?)';
-//   db.run(query, [name, email], function (err) {
-//     if (err) {
-//       return res.status(500).json({ error: err.message });
-//     }
-//     res.status(201).json({ id: this.lastID });
-//   });
-// };
-
-// // Update an existing user
-// const updateUser = (req, res) => {
-//   const { id } = req.params;
-//   const { name, email } = req.body;
-//   const query = 'UPDATE users SET name = ?, email = ? WHERE id = ?';
-//   db.run(query, [name, email, id], function (err) {
-//     if (err) {
-//       return res.status(500).json({ error: err.message });
-//     }
-//     if (this.changes === 0) {
-//       return res.status(404).json({ error: 'User not found' });
-//     }
-//     res.json({ message: 'User updated successfully' });
-//   });
-// };
-
-// // Delete a user
-// const deleteUser = (req, res) => {
-//   const { id } = req.params;
-//   const query = 'DELETE FROM users WHERE id = ?';
-//   db.run(query, [id], function (err) {
-//     if (err) {
-//       return res.status(500).json({ error: err.message });
-//     }
-//     if (this.changes === 0) {
-//       return res.status(404).json({ error: 'User not found' });
-//     }
-//     res.json({ message: 'User deleted successfully' });
-//   });
-// };
-
-// module.exports = {
-//   getAllUsers,
-//   getUserById,
-//   createUser,
-//   updateUser,
-//   deleteUser,
-// };
+export const deleteEmployee = async (id) => {
+  const db = await connectDB()
+  
+  try {
+    return new Promise((resolve, reject) => {
+      db.run(
+        `
+        DELETE FROM EMP
+        WHERE emp_no = $empNo;
+        `,
+        { $empNo: id },
+        (err) => {
+        if (err) reject(err)
+        else resolve({ message: `Success! Deleted employee ${id}`})
+      })
+    })
+  } catch (err) {
+    console.error('Error deleting Employee', err.message)
+    throw err
+  } finally {
+    db.close()
+  }
+}
