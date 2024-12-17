@@ -15,7 +15,10 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`)
 })
 
-// ENDPOINTS
+// ENDPOINTS //
+///////////////
+
+// TEST
 
 app.get('/', (req, res, next) => {
   res.send(test())
@@ -26,10 +29,32 @@ app.post('/test', (req, res, next) => {
   res.json({ message })
 })
 
+// Problem 1: WEATHER
+
 app.post('/weather', async (req, res, next) => {
   const { city } = req.body
-
   const current = await weather(city)
-
   res.json(current)
+})
+
+// Problem 2: REST API
+
+app.post('/employees', (req, res, next) = {
+  // Add a new employee (accepts name, email, and position).
+})
+
+app.get('/employees', (req, res, next) = {
+  // Retrieve the list of all employees.
+})
+
+app.get('/employees:id', (req, res, next) = {
+ // Retrieve details of a single employee by ID.
+})
+
+app.put('/employees:id', (req, res, next) = {
+  // Update the details of an employee.
+})
+
+app.delete('/employees:id', (req, res, next) = {
+  // Remove an employee by ID.
 })
