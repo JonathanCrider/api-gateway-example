@@ -11,7 +11,7 @@ export const createNewEmployee = async (req, res, next) => {
   const db = await connectDB()
   
   try {
-    const newEmployee = await new Promise((resolve, reject) => {
+    const newEmployeeID = await new Promise(function (resolve, reject) {
       db.run(
         `
         INSERT INTO employees (name, email, position)
@@ -22,12 +22,12 @@ export const createNewEmployee = async (req, res, next) => {
           $email: email,
           $position: position
         },
-        (err) => {
+        function (err) {
         if (err) reject(err)
-        else resolve(this) // not returning a value, needs further investigation.
+        else resolve(this.lastID)
       })
     })
-    res.status(201).json({ message: 'Successfully created new employee.'})
+    res.status(201).json({ message: `Successfully created new employee with ID ${newEmployeeID}`})
   } catch (err) {
     console.error('Error creating new Employee', err.message)
     res.status(500).json({ error: 'Failed to create new employee'})
@@ -105,7 +105,7 @@ export const updateEmployee = async (req, res, next) => {
   const db = await connectDB()
   
   try {
-    const updatedEmployee = await new Promise((resolve, reject) => {
+    const employeeID = await new Promise((resolve, reject) => {
       db.run(
         `
         UPDATE employees
@@ -121,12 +121,12 @@ export const updateEmployee = async (req, res, next) => {
           $email: email,
           $position: position
         },
-        (err) => {
+        function (err) {
         if (err) reject(err)
-        else resolve(this) // not returning a value, needs further investigation.
+        else resolve(this.lastID)
       })
     })
-    res.json({ message: 'Successfully updated employee.'})
+    res.json({ message: `Successfully updated employee ID ${employeeID}`})
   } catch (err) {
     console.error('Error updating Employee', err.message)
     res.status(500).json({ error: 'Failed to update employee' })
