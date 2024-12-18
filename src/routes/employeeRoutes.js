@@ -12,21 +12,18 @@ const router = express.Router()
 // CREATE
 
 router.post('/', async (req, res, next) => {
-  // validate data
   const {
-    emp_no,
-    emp_name,
-    hire_date,
-    supervisor_name,
-    department_code
+    name,
+    email,
+    position
   } = req.body
   
+  if (!name || !email || !position) res.sendStatus(400)
+  
   const employeeData = {
-    emp_no,
-    emp_name,
-    hire_date,
-    supervisor_name,
-    department_code
+    name,
+    email,
+    position
   }
   try {
     const newEmployee = await createNewEmployee(employeeData)
@@ -60,22 +57,20 @@ router.get('/:id', async (req, res, next) => {
 // UPDATE
 
 router.put('/:id', async (req, res, next) => {
-  // validate data
   const { id } = req.params
 
   const {
-    emp_name,
-    hire_date,
-    supervisor_name,
-    department_code
+    name,
+    email,
+    position
   } = req.body
   
+  if (!id || !name || !email || !position) res.sendStatus(400)
+
   const employeeData = {
-    emp_no: id,
-    emp_name,
-    hire_date,
-    supervisor_name,
-    department_code
+    name,
+    email,
+    position
   }
   try {
     const updatedEmployee = await updateEmployee(employeeData)
@@ -91,7 +86,9 @@ router.put('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   // validate data
   const { id } = req.params
-  try {
+  if (!id) res.status(400)
+  
+    try {
     const deletedEmployee = await deleteEmployee(id)
     console.log(deletedEmployee)
     res.sendStatus(204)

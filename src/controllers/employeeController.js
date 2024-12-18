@@ -4,11 +4,9 @@ import connectDB from '../config/db.js'
 
 export const createNewEmployee = async (employeeData) => {
   const {
-    emp_no,
-    emp_name,
-    hire_date,
-    supervisor_name,
-    department_code
+    name,
+    email,
+    position
   } = employeeData
   const db = await connectDB()
   
@@ -16,31 +14,25 @@ export const createNewEmployee = async (employeeData) => {
     return new Promise((resolve, reject) => {
       db.run(
         `
-        INSERT INTO EMP (
-          emp_no,
-          emp_name,
-          hire_date,
-          supervisor_name,
-          department_code
+        INSERT INTO employees (
+          name,
+          email,
+          position
         )
         VALUES (
-          $empNo,
-          $empName,
-          $hireDate,
-          $supervisorName,
-          $departmentCode
+          $name,
+          $email,
+          $position
         );
         `,
         {
-          $empNo: emp_no,
-          $empName: emp_name,
-          $hireDate: hire_date,
-          $supervisorName: supervisor_name,
-          $departmentCode: department_code,
+          $name: name,
+          $email: email,
+          $position: position
         },
         (err) => {
         if (err) reject(err)
-        else resolve({ message: `Success! Created new employee ${emp_no}`})
+        else resolve({ message: `Success! Created new employee`})
       })
     })
   } catch (err) {
@@ -60,7 +52,7 @@ export const getAllEmployees = async () => {
       db.all(
         `
         SELECT *
-        FROM EMP;
+        FROM employees;
         `,
         [],
         (err, rows) => {
@@ -83,8 +75,8 @@ export const getEmployeeById = async (id) => {
       db.all(
         `
         SELECT *
-        FROM EMP
-        WHERE emp_no = $id;
+        FROM employees
+        WHERE id = $id;
         `,
         { $id: id },
         (err, rows) => {
@@ -104,11 +96,10 @@ export const getEmployeeById = async (id) => {
 
 export const updateEmployee = async (employeeData) => {
   const {
-    emp_no,
-    emp_name,
-    hire_date,
-    supervisor_name,
-    department_code
+    id,
+    name,
+    email,
+    position
   } = employeeData
   const db = await connectDB()
   
@@ -116,24 +107,22 @@ export const updateEmployee = async (employeeData) => {
     return new Promise((resolve, reject) => {
       db.run(
         `
-        UPDATE EMP
+        UPDATE employees
         SET
-          emp_name = $empName,
-          hire_date = $hireDate,
-          supervisor_name = $supervisorName,
-          department_code = $departmentCode
-        WHERE emp_no = $empNo;
+          name = $name,
+          email = email,
+          position = $position
+        WHERE id = $id;
         `,
         {
-          $empNo: emp_no,
-          $empName: emp_name,
-          $hireDate: hire_date,
-          $supervisorName: supervisor_name,
-          $departmentCode: department_code,
+          $id: id,
+          $name: name,
+          $email: email,
+          $position: position
         },
         (err) => {
         if (err) reject(err)
-        else resolve({ message: `Success! Updated employee ${emp_no}`})
+        else resolve({ message: `Success! Updated employee ${id}`})
       })
     })
   } catch (err) {
@@ -153,10 +142,10 @@ export const deleteEmployee = async (id) => {
     return new Promise((resolve, reject) => {
       db.run(
         `
-        DELETE FROM EMP
-        WHERE emp_no = $empNo;
+        DELETE FROM employees
+        WHERE id = $id;
         `,
-        { $empNo: id },
+        { $id: id },
         (err) => {
         if (err) reject(err)
         else resolve({ message: `Success! Deleted employee ${id}`})
