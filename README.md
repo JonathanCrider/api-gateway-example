@@ -60,6 +60,6 @@ Once the server is running, you can open your browser to see the docs at the fol
 
 ## API Package
 
-Download the JSON and import into Insomnia or PostMan for pre-created routes:
+Download the JSON and import into [Insomnia](https://insomnia.rest/):
 
-[[[LINK TBD]]]
+[Insomnia JSON](https://github.com/JonathanCrider/api-skill-assessment/blob/main/docs/Insomnia-api-skill-assessment.json)
