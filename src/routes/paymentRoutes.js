@@ -6,8 +6,9 @@ import {
 const router = express.Router()
 
 router.get('/', async (req, res, next) => {
-  // setup
-  res.json({ message: await recentChargesByDays() })
+  const numDays = parseInt(req.query.numDays)
+  const chargesLast30 = await recentChargesByDays(numDays)
+  res.json(chargesLast30)
 })
 
 export default router
