@@ -6,4 +6,6 @@ const provider = () => {
 
 export default provider
 
+// Resources:
 // https://github.com/stripe/stripe-node#usage
+// https://github.com/stripe-samples/test-data1

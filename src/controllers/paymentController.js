@@ -34,7 +34,10 @@ export const recentChargesByDays = async (numDays = 30) => {
 
   return {
     totalCharges,
-    totalAmount,
+    totalAmount: totalAmount/100,
     listOfCharges
   }
 }
+
+// TODO: account for different currencies (cents -> dollars)
+// TODO: handle errors

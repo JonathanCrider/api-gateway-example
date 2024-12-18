@@ -1,29 +1,21 @@
 import connectDB from '../config/db.js'
 
 // CREATE
+// TODO: documentation
 
-export const createNewEmployee = async (employeeData) => {
-  const {
-    name,
-    email,
-    position
-  } = employeeData
+export const createNewEmployee = async (req, res, next) => {
+  const { name, email, position } = req.body
+
+  if (!name || !email || !position) return res.status(400).json({ error: 'Missing required data'})
+
   const db = await connectDB()
   
   try {
-    return new Promise((resolve, reject) => {
+    const newEmployee = await new Promise((resolve, reject) => {
       db.run(
         `
-        INSERT INTO employees (
-          name,
-          email,
-          position
-        )
-        VALUES (
-          $name,
-          $email,
-          $position
-        );
+        INSERT INTO employees (name, email, position)
+        VALUES ($name, $email, $position);
         `,
         {
           $name: name,
@@ -32,12 +24,13 @@ export const createNewEmployee = async (employeeData) => {
         },
         (err) => {
         if (err) reject(err)
-        else resolve({ message: `Success! Created new employee`})
+        else resolve(this) // not returning a value, needs further investigation.
       })
     })
+    res.status(201).json({ message: 'Successfully created new employee.'})
   } catch (err) {
     console.error('Error creating new Employee', err.message)
-    throw err
+    res.status(500).json({ error: 'Failed to create new employee'})
   } finally {
     db.close()
   }
@@ -45,10 +38,10 @@ export const createNewEmployee = async (employeeData) => {
 
 // READ
 
-export const getAllEmployees = async () => {
+export const getAllEmployees = async (req, res, next) => {
   const db = await connectDB()
   try {
-    return new Promise((resolve, reject) => {
+    const allEmployees = await new Promise((resolve, reject) => {
       db.all(
         `
         SELECT *
@@ -60,18 +53,22 @@ export const getAllEmployees = async () => {
         else resolve(rows)
       })
     })
+    res.json(allEmployees)
   } catch (err) {
     console.error('Error querying the database', err.message)
-    throw err
+    res.status(500).json({ error: 'Failed to retrieve data' })
   } finally {
     db.close()
   }
 }
 
-export const getEmployeeById = async (id) => {
+export const getEmployeeById = async (req, res, next) => {
+  const { id } = req.params
+
   const db = await connectDB()
+  
   try {
-    return new Promise((resolve, reject) => {
+    const employee =  await new Promise((resolve, reject) => {
       db.all(
         `
         SELECT *
@@ -84,9 +81,10 @@ export const getEmployeeById = async (id) => {
         else resolve(rows)
       })
     })
+    res.json(employee)
   } catch (err) {
     console.error('Error querying the database', err.message)
-    throw err
+    res.status(500).send({ error: 'Failed to retieve data' })
   } finally {
     db.close()
   }
@@ -94,17 +92,20 @@ export const getEmployeeById = async (id) => {
 
 // UPDATE
 
-export const updateEmployee = async (employeeData) => {
+export const updateEmployee = async (req, res, next) => {
+  const { id } = req.params
   const {
-    id,
     name,
     email,
     position
-  } = employeeData
+  } = req.body
+
+  if (!id || !name || !email || !position) return res.status(400).json({ error: 'Missing required data'})
+
   const db = await connectDB()
   
   try {
-    return new Promise((resolve, reject) => {
+    const updatedEmployee = await new Promise((resolve, reject) => {
       db.run(
         `
         UPDATE employees
@@ -122,12 +123,13 @@ export const updateEmployee = async (employeeData) => {
         },
         (err) => {
         if (err) reject(err)
-        else resolve({ message: `Success! Updated employee ${id}`})
+        else resolve(this) // not returning a value, needs further investigation.
       })
     })
+    res.json({ message: 'Successfully updated employee.'})
   } catch (err) {
     console.error('Error updating Employee', err.message)
-    throw err
+    res.status(500).send({ error: 'Failed to update employee' })
   } finally {
     db.close()
   }
@@ -135,11 +137,15 @@ export const updateEmployee = async (employeeData) => {
 
 // DELETE
 
-export const deleteEmployee = async (id) => {
+export const deleteEmployeeById = async (req, res, next) => {
+  const { id } = req.params
+
+  if (!id) return res.status(400).json({ error: 'Missing required data'})
+  
   const db = await connectDB()
   
   try {
-    return new Promise((resolve, reject) => {
+    const response = await new Promise((resolve, reject) => {
       db.run(
         `
         DELETE FROM employees
@@ -151,9 +157,10 @@ export const deleteEmployee = async (id) => {
         else resolve({ message: `Success! Deleted employee ${id}`})
       })
     })
+    res.sendStatus(204)
   } catch (err) {
     console.error('Error deleting Employee', err.message)
-    throw err
+    res.status(500).send({ error: 'Failed to delete employee' })
   } finally {
     db.close()
   }

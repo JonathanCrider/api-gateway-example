@@ -1,6 +1,8 @@
 import fetch from 'node-fetch'
 
 const current = async (city) => {
+  // I know you said create a simple program or CLI tool, but decided to implement as
+  // a route since I was building the server anyway.
   const API_KEY = process.env.OPENWEATHER_API_KEY
   const resRaw = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`)
   const res = await resRaw.json()

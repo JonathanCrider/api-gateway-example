@@ -10,6 +10,7 @@ import auth from './middleware/authMiddleware.js'
 
 const app = express()
 app.use(express.json())
+// Would use CORS for production API server
 
 // AUTH
 app.use(auth)
