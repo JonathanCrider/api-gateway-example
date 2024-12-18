@@ -38,6 +38,10 @@ cd api-skill-assessment
 
 Be sure to create a `.env` file and include the following variables:
 
+```bash
+touch .env
+```
+
 ```env
 PORT=3001
 OPENWEATHER_API_KEY=
