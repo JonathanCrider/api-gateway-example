@@ -47,7 +47,7 @@ export const recentChargesByDays = async (req, res, next) => {
 }
 
 // TODO: account for different currencies (cents -> dollars)
-// TODO: better error handling
+// TODO: better error handling (network, stripe auth, retries)
 
 // Resources:
 // https://docs.stripe.com/api/charges/list#list_charges-created
