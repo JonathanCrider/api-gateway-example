@@ -2,7 +2,6 @@ import express from 'express'
 import {
   employeeRoutes,
   paymentRoutes,
-  testRoutes,
   weatherRoutes
 } from './routes/index.js'
 import auth from './middleware/authMiddleware.js'
@@ -22,7 +21,6 @@ app.use(auth)
 // ROUTES
 app.use('/employees', employeeRoutes)
 app.use('/finance', paymentRoutes)
-app.use('/test', testRoutes)
 app.use('/weather', weatherRoutes)
 
 
