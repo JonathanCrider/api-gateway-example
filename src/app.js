@@ -5,9 +5,13 @@ import {
   testRoutes,
   weatherRoutes
 } from './routes/index.js'
+import auth from './middleware/authMiddleware.js'
 
 const app = express()
 app.use(express.json())
+
+// AUTH
+app.use(auth)
 
 // ROUTES
 app.use('/employees', employeeRoutes)
