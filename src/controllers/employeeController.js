@@ -84,7 +84,7 @@ export const getEmployeeById = async (req, res, next) => {
     res.json(employee)
   } catch (err) {
     console.error('Error querying the database', err.message)
-    res.status(500).send({ error: 'Failed to retieve data' })
+    res.status(500).json({ error: 'Failed to retieve data' })
   } finally {
     db.close()
   }
@@ -129,7 +129,7 @@ export const updateEmployee = async (req, res, next) => {
     res.json({ message: 'Successfully updated employee.'})
   } catch (err) {
     console.error('Error updating Employee', err.message)
-    res.status(500).send({ error: 'Failed to update employee' })
+    res.status(500).json({ error: 'Failed to update employee' })
   } finally {
     db.close()
   }
@@ -160,7 +160,7 @@ export const deleteEmployeeById = async (req, res, next) => {
     res.sendStatus(204)
   } catch (err) {
     console.error('Error deleting Employee', err.message)
-    res.status(500).send({ error: 'Failed to delete employee' })
+    res.status(500).json({ error: 'Failed to delete employee' })
   } finally {
     db.close()
   }
