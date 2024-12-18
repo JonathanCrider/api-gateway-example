@@ -27,7 +27,14 @@ To set up the development environment, you'll need to install the following tool
    - [Download SQLite](https://www.sqlite.org/download.html)  
    - [SQLite Documentation](https://www.sqlite.org/docs.html)  
 
-Make sure your environment variables are properly configured (e.g., using `.env` files).
+### Download and run the project
+
+```bash
+git clone https://github.com/JonathanCrider/api-skill-assessment.git
+cd api-skill-assessment
+```
+
+Be sure to create a `.env` file and include the following variables:
 
 ```env
 PORT=3001
@@ -36,12 +43,7 @@ STRIPE_SECRET_API_KEY=
 X_API_KEY=
 ```
 
-### Download and run the project
-
-```bash
-git clone https://github.com/JonathanCrider/api-skill-assessment.git
-cd api-skill-assessment
-```
+Install the dependencies and start the server locally:
 
 ```bash
 npm i
