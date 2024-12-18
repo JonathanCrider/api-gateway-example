@@ -16,7 +16,6 @@ router.post('/', createNewEmployee)
 // READ
 
 router.get('/', getAllEmployees)
-
 router.get('/:id', getEmployeeById)
 
 // UPDATE

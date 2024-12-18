@@ -16,8 +16,7 @@ export const recentChargesByDays = async (req, res, next) => {
       },
       limit: 100 // max is 100, implement recursion?
     })
-    // https://docs.stripe.com/api/charges/list#list_charges-created
-  
+    
     const totalCharges = charges.data.length
     const { totalAmount, listOfCharges } = charges.data.reduce((acc, charge) => {
       const { amount, currency, description, status } = charge
@@ -49,3 +48,6 @@ export const recentChargesByDays = async (req, res, next) => {
 
 // TODO: account for different currencies (cents -> dollars)
 // TODO: better error handling
+
+// Resources:
+// https://docs.stripe.com/api/charges/list#list_charges-created
