@@ -1,0 +1,371 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-12-18T19:01:13.594Z",
+  "__export_source": "insomnia.desktop.app:v10.2.0",
+  "resources": [
+    {
+      "_id": "req_491a021127ac4e0f8aa6f552fa3f44bd",
+      "parentId": "fld_4de0ac4f43ae4d9da6bea4bc37ce3367",
+      "modified": 1734547913739,
+      "created": 1734491673602,
+      "url": "http://localhost:3001/finance/recentCharges",
+      "name": "Payments",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_e7bd13fa58dc4bbfa59fd6b1af98dca5",
+          "name": "numDays",
+          "value": "30",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/10.2.0",
+          "id": "pair_577b41beb0f94334bddaa900c3fdc464"
+        },
+        {
+          "id": "pair_ac174af8d1b54948bf2b51be1df00d3f",
+          "name": "X-API-KEY",
+          "value": "anvowe84rnfsd8u",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1734547913636,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_4de0ac4f43ae4d9da6bea4bc37ce3367",
+      "parentId": "wrk_8b8b1770dec347b1a78fc0d93c5e1b5c",
+      "modified": 1734547903865,
+      "created": 1734547903865,
+      "name": "Stripe",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1734547903865,
+      "environmentType": "kv",
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_8b8b1770dec347b1a78fc0d93c5e1b5c",
+      "parentId": null,
+      "modified": 1734395386416,
+      "created": 1734395386416,
+      "name": "API Skill Assessment",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_978121909b8a47d781a46aaff31a3c82",
+      "parentId": "fld_20eed6ab97a64cb88db8e8c2de6c2875",
+      "modified": 1734547943540,
+      "created": 1734473431117,
+      "url": "http://localhost:3001/employees/",
+      "name": "Employee create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Goofy\",\n  \"email\": \"goofy5@disney.com\",\n  \"position\": \"Sanitation Engineer\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_491f0ba06a4348fab07e1c612c769b17"
+        },
+        {
+          "name": "User-Agent",
+          "value": "insomnia/10.2.0",
+          "id": "pair_167321fc17884cd09c32e197de7c95c9"
+        },
+        {
+          "id": "pair_55581f53fc0d41f3a970ebbd67bd5a49",
+          "name": "X-API-KEY",
+          "value": "anvowe84rnfsd8u",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1734547932167,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_20eed6ab97a64cb88db8e8c2de6c2875",
+      "parentId": "wrk_8b8b1770dec347b1a78fc0d93c5e1b5c",
+      "modified": 1734547867982,
+      "created": 1734547867982,
+      "name": "Employees",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1734547867982,
+      "environmentType": "kv",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_07eed308e70d417c80d65b27b75953f2",
+      "parentId": "fld_20eed6ab97a64cb88db8e8c2de6c2875",
+      "modified": 1734547938018,
+      "created": 1734473414819,
+      "url": "http://localhost:3001/employees/6",
+      "name": "Employee by ID",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/10.2.0",
+          "id": "pair_577b41beb0f94334bddaa900c3fdc464"
+        },
+        {
+          "id": "pair_ac174af8d1b54948bf2b51be1df00d3f",
+          "name": "X-API-KEY",
+          "value": "anvowe84rnfsd8u",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1734547932017,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b09f4b73c7ca4652ab9b80232e53bcfe",
+      "parentId": "fld_20eed6ab97a64cb88db8e8c2de6c2875",
+      "modified": 1734547936692,
+      "created": 1734457786528,
+      "url": "http://localhost:3001/employees/",
+      "name": "Employee all",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/10.2.0",
+          "id": "pair_9df8245d59da43dda6fe0eaf94227890"
+        },
+        {
+          "id": "pair_1d52beec591e4a5aaebb2bf53176cfab",
+          "name": "X-API-KEY",
+          "value": "anvowe84rnfsd8u",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1734547931917,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d6611989f96749a884f59f19325556d6",
+      "parentId": "fld_20eed6ab97a64cb88db8e8c2de6c2875",
+      "modified": 1734547961154,
+      "created": 1734475167700,
+      "url": "http://localhost:3001/employees/3",
+      "name": "Employee update",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Minnie Mouse update\",\n  \"email\": \"minnie@disney.com\",\n  \"position\": \"Rodent Extraodinaire\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_a19df8d3c8be4656bf65c105c0de3e3b"
+        },
+        {
+          "name": "User-Agent",
+          "value": "insomnia/10.2.0",
+          "id": "pair_c8d63d09adf84334b76c8f246ae9ba54"
+        },
+        {
+          "id": "pair_dee788800cb84e69874b69fcb0e37da1",
+          "name": "X-API-KEY",
+          "value": "anvowe84rnfsd8u",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1734547931867,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9d4e9297ea7f4a638463979ac840970d",
+      "parentId": "fld_20eed6ab97a64cb88db8e8c2de6c2875",
+      "modified": 1734547950753,
+      "created": 1734478708807,
+      "url": "http://localhost:3001/employees/5",
+      "name": "Employee delete",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "User-Agent",
+          "value": "insomnia/10.2.0",
+          "id": "pair_1f63d3a4ac634fce9bff6d1132b0ed6c"
+        },
+        {
+          "id": "pair_333b7b5322464679b2a70bdc050ca2d1",
+          "name": "X-API-KEY",
+          "value": "anvowe84rnfsd8u",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1734547931817,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d4c5eb6e6a9b45c1a4ebe3082f14061f",
+      "parentId": "fld_ebdc0db5bf1741feaae420a5ee0bdbca",
+      "modified": 1734547851556,
+      "created": 1734397959769,
+      "url": "http://localhost:3001/weather",
+      "name": "Weather",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"city\": \"Grand Rapids\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_60012e19cb084874bc5f1adc6d6c4ece"
+        },
+        {
+          "name": "User-Agent",
+          "value": "insomnia/10.2.0",
+          "id": "pair_d1e6637441a04d63b8f85215eb11478e"
+        },
+        {
+          "id": "pair_cbb4c1b796ba42a9976d435c26244c4a",
+          "name": "X-API-KEY",
+          "value": "anvowe84rnfsd8u",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1734547851456,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_ebdc0db5bf1741feaae420a5ee0bdbca",
+      "parentId": "wrk_8b8b1770dec347b1a78fc0d93c5e1b5c",
+      "modified": 1734547847599,
+      "created": 1734547847599,
+      "name": "Weather",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1734547847599,
+      "environmentType": "kv",
+      "_type": "request_group"
+    },
+    {
+      "_id": "env_3425c81f3c6046dfd19d64fda036cbe7ce55eb31",
+      "parentId": "wrk_8b8b1770dec347b1a78fc0d93c5e1b5c",
+      "modified": 1734395386423,
+      "created": 1734395386423,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1734395386423,
+      "environmentType": "kv",
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_3425c81f3c6046dfd19d64fda036cbe7ce55eb31",
+      "parentId": "wrk_8b8b1770dec347b1a78fc0d93c5e1b5c",
+      "modified": 1734395386426,
+      "created": 1734395386426,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    }
+  ]
+}
