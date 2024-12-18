@@ -1,12 +1,12 @@
 import connectDB from '../config/db.js'
 
 // CREATE
-// TODO: documentation
 
 export const createNewEmployee = async (req, res, next) => {
   const { name, email, position } = req.body
 
   if (!name || !email || !position) return res.status(400).json({ error: 'Missing required data'})
+  // consider additional validation to prevent SQL attacks, not just missing data
 
   const db = await connectDB()
   
