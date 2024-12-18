@@ -1,6 +1,6 @@
 # API Skill Assessment
 
-Thank you for the opportunity to showcase my API development skills. Please reach out if you have any questions or have any trouble setting up the project. I've tried to be as thorough as possible, but I could certaily have missed something.
+Thank you for the opportunity to showcase my API development skills. Please reach out if you have any questions or have any trouble setting up the project. I've tried to be as thorough as possible, but I could certainly have missed something.
 
 The SQL Test is also included in this project: [**SQL Test**](https://github.com/JonathanCrider/api-skill-assessment/blob/main/docs/SQLtest.md)
 
@@ -17,9 +17,11 @@ To set up the development environment, you'll need to install the following tool
 
 2. **NPM (Node Package Manager)**  
    NPM comes bundled with Node.js and is used to manage dependencies for your project. To verify if NPM is installed, run:  
+
    ```bash
    npm --version
    ```  
+
    - [NPM Documentation](https://docs.npmjs.com/)  
 
 3. **SQLite**  
@@ -50,12 +52,14 @@ npm i
 npm run start:dev
 ```
 
-## API Package
-
-Insomnia
-
-Postman
-
 ## API Documentation
 
-Docs
+Once the server is running, you can open your browser to see the docs at the following URL (if your `.env` port is set to 3001):
+
+[http://localhost:3001/docs](http://localhost:3001/docs)
+
+## API Package
+
+Download the JSON and import into Insomnia or PostMan for pre-created routes:
+
+[[[LINK TBD]]]

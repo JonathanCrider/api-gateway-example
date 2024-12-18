@@ -1,0 +1,219 @@
+openapi: 3.0.0
+info:
+  title: API Skill Assessment Docs
+  description: Documentation for the requested API routes
+  version: 0.1.0
+
+servers:
+- url: http://localhost:3001
+  description: Local dev
+
+paths:
+  "/weather":
+    post:
+      tags: ["Weather"]
+      summary: Retrieve current weather conditions for a specific city
+      description: Retrieve current weather conditions for a specific city
+      operationId: currentWeather
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city:
+                  type: string
+                  description: Name of city
+                  example: Grand Rapids
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/weather"
+        "500":
+          $ref: "#/components/responses/500"
+  "/employees":
+    get:
+      tags: ["Employees"]
+      summary: GET all employees.
+      description: Retrieves all available employee records
+      operationId: getAllEmployees
+      responses:
+        "200": # 200 Status Code
+          description: Success
+          content:
+            application/json: # Response is returned in JSON
+              schema:
+                type: array
+                description: Array of employee objects
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      description: ID of the post
+                      example: 1
+                    name:
+                      type: string
+                      description: Employee name
+                      example: John Doe
+                    email:
+                      type: string
+                      description: Employee email
+                      example: john@email.com
+                    position:
+                      type: string
+                      description: Employee job title
+                      example: Sanitation Engineer
+                    
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      tags: ["Employees"]
+      summary: CREATE new employee record
+      description: Creates a new employee record
+      operationId: createNewEmployee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/employee"
+        required: true
+      responses:
+        "201":
+          description: Employee record successfully created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Message
+                    example: Successfully created new employee.
+                
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/500"
+  "/employees/{id}":
+    parameters:
+    - name: id # must be same as the value in the {}
+      in: path
+      description: ID of the employee
+      # Since this is in the path, the parameter HAS to be required
+      required: true
+      # Defining the type of the parameter
+      schema:
+        # in this case, it is just a string
+        type: number
+    get:
+      tags: ["Employees"]
+      summary: GET a single employee
+      description: Get an employee by unique post ID
+      operationId: getEmployeeById
+      responses:
+        "200":
+          $ref: "#/components/responses/200"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/500"
+    put:
+      tags: ["Employees"]
+      summary: UPDATE an employee record
+      description: Update an employee record by ID
+      operationId: updateEmployee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/employee"
+        required: true
+      responses:
+        "200":
+          $ref: "#/components/responses/200"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/500"
+    delete:
+      tags: ["Employees"]
+      summary: DELETE an employee record
+      description: Delete an employee record by ID
+      operationId: deleteEmployeeById
+      responses:
+        "204":
+          $ref: "#/components/responses/204"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/500"
+
+components:
+  responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: message
+                  example: Success!
+      "204":
+        description: No Content
+      "400":
+        description: Bad Request
+      "500":
+        description: Failure
+  schemas:
+    weather:
+      type: object
+      properties:
+        current:
+          type: number
+          description: Current temperature
+          example: 34
+        humidity:
+          type: number
+          description: Current humidity
+          example: 80
+        description:
+          type: string
+          description: Description of the current conditions
+          example: Clouds, with a high of 36℉ and a low of 33℉. Humidity at 80% with winds around 8mph
+    employee:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Employee name
+          example: John Doe
+        email:
+          type: string
+          description: Employee email
+          example: john@email.com
+        position:
+          type: string
+          description: Employee job title
+          example: Sanitation Engineer
+
+tags:
+  - name: Employees
+    description: Relating to employee records
+  - name: Weather
+    description: OpenWeather API
+  - name: Stripe
+    description: Stripe integration
