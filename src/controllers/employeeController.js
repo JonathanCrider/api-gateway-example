@@ -110,7 +110,7 @@ export const updateEmployee = async (employeeData) => {
         UPDATE employees
         SET
           name = $name,
-          email = email,
+          email = $email,
           position = $position
         WHERE id = $id;
         `,

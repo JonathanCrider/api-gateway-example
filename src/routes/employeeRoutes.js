@@ -68,6 +68,7 @@ router.put('/:id', async (req, res, next) => {
   if (!id || !name || !email || !position) res.sendStatus(400)
 
   const employeeData = {
+    id,
     name,
     email,
     position

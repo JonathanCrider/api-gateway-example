@@ -2,6 +2,7 @@ import express from 'express'
 // ROUTES IMPORT
 import {
   employeeRoutes,
+  paymentRoutes,
   testRoutes,
   weatherRoutes
 } from './routes/index.js'
@@ -15,6 +16,7 @@ app.use(auth)
 
 // ROUTES
 app.use('/employees', employeeRoutes)
+app.use('/payments', paymentRoutes)
 app.use('/test', testRoutes)
 app.use('/weather', weatherRoutes)
 
