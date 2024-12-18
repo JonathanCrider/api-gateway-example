@@ -17,7 +17,7 @@ app.use(auth)
 
 // ROUTES
 app.use('/employees', employeeRoutes)
-app.use('/payments', paymentRoutes)
+app.use('/finance', paymentRoutes)
 app.use('/test', testRoutes)
 app.use('/weather', weatherRoutes)
 
