@@ -8,6 +8,9 @@ servers:
 - url: http://localhost:3001
   description: Local dev
 
+security:
+  - ApiKeyAuth: []
+
 paths:
   "/weather":
     post:
@@ -158,8 +161,70 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/500"
+  "/finance/recentCharges":
+    get:
+      tags: ["Stripe"]
+      summary: Retrieve recent charges
+      description: Retrieve recent charges, can request amount of days (default 30)
+      operationId: recentChargesByDays
+      parameters:
+        - name: numDays
+          in: query
+          description: Number of days to retrieve charges for (default is 30).
+          required: false
+          schema:
+            type: integer
+            example: 30
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalCharges:
+                    type: integer
+                    description: Total number of charges.
+                    example: 1
+                  totalAmount:
+                    type: number
+                    format: float
+                    description: Total amount of all charges.
+                    example: 12.34
+                  listOfCharges:
+                    type: array
+                    description: List of individual charge objects.
+                    items:
+                      type: object
+                      properties:
+                        amount:
+                          type: number
+                          format: float
+                          description: Amount of the charge.
+                          example: 12.34
+                        currency:
+                          type: string
+                          description: Currency of the charge.
+                          example: usd
+                        description:
+                          type: string
+                          description: Description of the charge.
+                          example: Test payment
+                        status:
+                          type: string
+                          description: Status of the charge.
+                          example: succeeded  
+        "500":
+          $ref: "#/components/responses/500"
+
 
 components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
   responses:
       "200":
         description: Success
