@@ -62,6 +62,8 @@ Once the server is running, you can open your browser to see the docs at the fol
 
 [http://localhost:3001/docs](http://localhost:3001/docs)
 
+They are also published at [https://jonathancrider.com/api-docs.html](https://jonathancrider.com/api-docs.html)
+
 ## API Package
 
 Download the JSON and import into [Insomnia](https://insomnia.rest/):
