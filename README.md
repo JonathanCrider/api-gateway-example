@@ -4,7 +4,7 @@
 
 This project was completed within a 48 hour window as part of a skill assessment.
 
-My approach was to create an MVP to complete all objectives at the most basic level based on the [requirements](https://github.com/JonathanCrider/api-gateway-example/blob/main/docs/INSTRUCTIONS.md). There are many things I would change given more time, but I wanted to keep this project in its original completed state to illustrate what was accomplished within the time limit.
+My approach was to create an MVP to complete all objectives at the most basic level based on the [requirements](https://github.com/JonathanCrider/api-gateway-example/blob/main/docs/INSTRUCTIONS.md). There are many things I would change given more time, but I was limited in time and wanted to complete each objective. I have left this project in its original completed state to illustrate what was accomplished within the time limit.
 
 Completing the requirements required learning at least 4 new (to me) technologies or platforms:
 
