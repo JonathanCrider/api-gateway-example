@@ -1,8 +1,21 @@
-# API Skill Assessment
+# API Gateway Example
 
-Thank you for the opportunity to showcase my API development skills. Please reach out if you have any questions or have any trouble setting up the project. I've tried to be as thorough as possible, but I could certainly have missed something.
+## Overview
 
-The SQL Test is also included in this project: [**SQL Test**](https://github.com/JonathanCrider/api-skill-assessment/blob/main/docs/SQLtest.md)
+This project was completed within a 48 hour window as part of a skill assessment.
+
+My approach was to create an MVP to complete all objectives at the most basic level based on the [requirements](https://github.com/JonathanCrider/api-gateway-example/blob/main/docs/INSTRUCTIONS.md). There are many things I would change given more time, but I wanted to keep this project in its original completed state.
+
+Completing the requirements required learning at least 4 new (to me) technologies or platforms:
+
+- [OpenWeather API](https://openweathermap.org/api)
+- [SQLite](https://www.sqlite.org/index.html)
+- [Stripe](https://docs.stripe.com/api)
+- [OpenAPI](https://swagger.io/specification/)
+
+I enjoyed this challenge! I love to learn new technologies and am able usually able to get up and running fairly quickly. I plan to fork this project to iterate on, fix things I didn't initially have time for, and deploy, as well as use it to continue to experiment and learn new tools.
+
+Part of the requirements also included a brief [SQL Test](https://github.com/JonathanCrider/api-gateway-example/blob/main/docs/SQLtest.md).
 
 ## Project setup
 
@@ -32,8 +45,8 @@ To set up the development environment, you'll need to install the following tool
 ### Download and run the project
 
 ```bash
-git clone https://github.com/JonathanCrider/api-skill-assessment.git
-cd api-skill-assessment
+git clone https://github.com/JonathanCrider/api-gateway-example.git
+cd api-gateway-example
 ```
 
 Be sure to create a `.env` file and include the following variables:
@@ -58,6 +71,8 @@ npm run start:dev
 
 ## API Documentation
 
+API documentation for this project was published using [OpenAPI](https://swagger.io/specification/)
+
 Once the server is running, you can open your browser to see the docs at the following URL (if your `.env` port is set to 3001):
 
 [http://localhost:3001/docs](http://localhost:3001/docs)
@@ -68,4 +83,4 @@ They are also published at [https://jonathancrider.com/api-docs.html](https://jo
 
 Download the JSON and import into [Insomnia](https://insomnia.rest/):
 
-[Insomnia JSON](https://github.com/JonathanCrider/api-skill-assessment/blob/main/docs/Insomnia-api-skill-assessment.json)
+[Insomnia JSON](https://github.com/JonathanCrider/api-gateway-example/blob/main/docs/Insomnia-api-skill-assessment.json)

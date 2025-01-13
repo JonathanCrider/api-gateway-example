@@ -1,5 +1,5 @@
 {
-  "name": "api-skill-assessment",
+  "name": "api-gateway-example",
   "version": "1.0.0",
   "description": "API development skill assessment",
   "main": "src/server.js",
