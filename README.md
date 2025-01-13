@@ -4,7 +4,7 @@
 
 This project was completed within a 48 hour window as part of a skill assessment.
 
-My approach was to create an MVP to complete all objectives at the most basic level based on the [requirements](https://github.com/JonathanCrider/api-gateway-example/blob/main/docs/INSTRUCTIONS.md). There are many things I would change given more time, but I wanted to keep this project in its original completed state.
+My approach was to create an MVP to complete all objectives at the most basic level based on the [requirements](https://github.com/JonathanCrider/api-gateway-example/blob/main/docs/INSTRUCTIONS.md). There are many things I would change given more time, but I wanted to keep this project in its original completed state to illustrate what was accomplished within the time limit.
 
 Completing the requirements required learning at least 4 new (to me) technologies or platforms:
 
@@ -13,7 +13,9 @@ Completing the requirements required learning at least 4 new (to me) technologie
 - [Stripe](https://docs.stripe.com/api)
 - [OpenAPI](https://swagger.io/specification/)
 
-I enjoyed this challenge! I love to learn new technologies and am able usually able to get up and running fairly quickly. I plan to fork this project to iterate on, fix things I didn't initially have time for, and deploy, as well as use it to continue to experiment and learn new tools.
+I enjoyed this challenge! I love to learn new technologies and am able usually able to get up and running fairly quickly. I did run into several issues while figuring out some of the new stuff, but I was able to get a working API Gateway going by the deadline.
+
+I plan to fork this project, refine it by addressing areas I didn't have time to complete, and deploy it. Additionally, I’ll continue experimenting and learning new tools to enhance the project further with things like better authentication, a user interface, and a test suite. This process will allow me to expand my skill set and deepen my understanding of the technologies involved.
 
 Part of the requirements also included a brief [SQL Test](https://github.com/JonathanCrider/api-gateway-example/blob/main/docs/SQLtest.md).
 
