@@ -33,7 +33,13 @@ Part of the requirements also included a brief [SQL Test](https://github.com/Jon
 
 ## Next Steps
 
-I plan to fork this project, refine it by addressing areas I didn't have time to complete, and deploy it. Additionally, I’ll continue experimenting and learning new tools to enhance the project further with things like better authentication, a user interface, and a test suite. This process will allow me to expand my skill set and deepen my understanding of the technologies involved.
+I plan to fork this project, refine it by addressing areas I didn't have time to complete, and deploy it. Additionally, I’ll continue experimenting and learning new tools to enhance the project further with:
+
+- **Better (read: actual) authentication:** My implementation is an unrefined, basic auth. It could be improved, but JWT or OAuth would be an actual solution.
+- **User interface:** Login with dashboards to view weather and users, and interactivity with the employees REST API.
+- **Test suite:** Unit tests are critical in production to be sure you're not breaking key functionality in future updates or refactors.
+
+This process will allow me to expand my skill set and deepen my understanding of the technologies involved.
 
 # Project setup
 
